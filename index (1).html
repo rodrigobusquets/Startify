@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Startify: de la idea al plan de negocio</title>
+<meta name="description" content="Responde 8 preguntas y obtén nombre de marca, logo, presupuesto y business plan para tu negocio.">
+<meta name="theme-color" content="#2547D0">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%232547D0'/%3E%3Cpath d='M20 44V20h24' stroke='%23F0B429' stroke-width='7' fill='none' stroke-linecap='round'/%3E%3C/svg%3E">
+<style>
+:root{--bg:#F4F6FA;--card:#fff;--ink:#0E1A2B;--mut:#55627A;--acc:#2547D0;--on:#fff;--gold:#F0B429;--line:#D8DEEA;--err:#B42318;--grid:rgba(37,71,208,.08)}
+@media(prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#0B1220;--card:#121B2E;--ink:#E9EEF8;--mut:#93A0B8;--acc:#7C9BFF;--on:#0B1220;--line:#25324A;--err:#FF8A80;--grid:rgba(124,155,255,.09)}}
+:root[data-theme=dark]{--bg:#0B1220;--card:#121B2E;--ink:#E9EEF8;--mut:#93A0B8;--acc:#7C9BFF;--on:#0B1220;--line:#25324A;--err:#FF8A80;--grid:rgba(124,155,255,.09)}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+h1,h2,h3{font-family:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;line-height:1.15;margin:0 0 .5rem}
+h1{font-size:clamp(2rem,7vw,3.2rem);letter-spacing:-.02em}
+h2{font-size:clamp(1.4rem,4.5vw,1.9rem)}h3{font-size:1.15rem}
+p{margin:0 0 .8rem}
+.wrap{max-width:760px;margin:0 auto;padding:0 18px}
+header.top{background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:28px 28px;border-bottom:1px solid var(--line)}
+.bar{display:flex;justify-content:space-between;align-items:center;padding:14px 0}
+.brand{font:700 1.25rem Georgia,serif;display:flex;align-items:center;gap:8px}
+.brand i{width:26px;height:26px;border-radius:7px;background:var(--acc);display:inline-block;position:relative}
+.brand i:after{content:"";position:absolute;left:6px;top:6px;width:13px;height:13px;border-left:4px solid var(--gold);border-top:4px solid var(--gold);border-radius:2px}
+.hero{padding:44px 0 56px}.hero p{max-width:52ch;color:var(--mut);font-size:1.1rem}
+.btn{font:inherit;font-weight:600;border:0;border-radius:10px;padding:12px 20px;background:var(--acc);color:var(--on);cursor:pointer;min-height:46px}
+.btn.ghost{background:transparent;color:var(--ink);border:1px solid var(--line)}
+.btn.sm{padding:8px 12px;min-height:38px;font-size:.9rem}
+.btn:hover{filter:brightness(1.08)}
+:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px;margin:18px 0}
+.prog{height:6px;background:var(--line);border-radius:9px;overflow:hidden}
+.prog div{height:100%;background:var(--acc);width:0;transition:width .3s}
+.count{color:var(--mut);font-size:.9rem;margin:10px 0 18px}
+.hint{color:var(--mut)}
+input[type=text],select{width:100%;font:inherit;padding:12px;border:1px solid var(--line);border-radius:10px;background:var(--bg);color:var(--ink);min-height:46px}
+.row{display:flex;gap:8px;margin-top:10px}
+.opts{display:grid;gap:8px;margin-top:6px}
+.opt{display:block;cursor:pointer}.opt input{position:absolute;opacity:0}
+.opt span{display:block;padding:12px 14px;border:1px solid var(--line);border-radius:10px}
+.opt input:checked+span{border-color:var(--acc);box-shadow:inset 0 0 0 2px var(--acc);font-weight:600}
+.opt input:focus-visible+span{outline:3px solid var(--gold)}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0}
+.tag{background:var(--bg);border:1px solid var(--line);border-radius:99px;padding:4px 6px 4px 12px}
+.tag button{border:0;background:none;color:var(--mut);font-size:1.1rem;cursor:pointer;padding:0 6px}
+.pals{display:flex;flex-wrap:wrap;gap:10px;margin:8px 0 16px}
+.sw{width:64px;height:44px;border-radius:10px;border:2px solid var(--line);cursor:pointer;padding:0;overflow:hidden;display:flex}
+.sw b{flex:1}.sw.on{border-color:var(--ink);box-shadow:0 0 0 2px var(--card),0 0 0 4px var(--acc)}
+.cols{display:flex;gap:18px;flex-wrap:wrap;align-items:center}
+.cols label{display:flex;gap:8px;align-items:center}.cols input[type=color]{width:46px;height:38px;border:1px solid var(--line);border-radius:8px;padding:2px;background:var(--bg)}
+.nav{display:flex;justify-content:space-between;gap:10px;margin-top:22px}
+#err{color:var(--err);min-height:1.4em;margin-top:12px;font-weight:600}
+.actions{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0}
+.names{display:grid;gap:14px}@media(min-width:640px){.names{grid-template-columns:repeat(3,1fr)}}
+.nm{border:1px solid var(--line);border-radius:12px;padding:12px;background:var(--bg)}.nm.sel{border-color:var(--acc);box-shadow:0 0 0 2px var(--acc)}
+.logo{background:#fff;border-radius:10px;margin-bottom:10px}.logo svg{display:block;width:100%;height:auto}
+.dls{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}
+table{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums}
+th,td{text-align:left;padding:9px 6px;border-bottom:1px solid var(--line)}td+td,th+th{text-align:right}
+.stack{display:flex;height:16px;border-radius:9px;overflow:hidden;margin:14px 0}
+.stack i{display:block}
+.note{background:var(--bg);border-left:4px solid var(--gold);padding:10px 14px;border-radius:6px;color:var(--mut)}
+.plan h3{margin-top:18px}.plan ul{padding-left:20px;margin:0 0 8px}
+footer{color:var(--mut);font-size:.88rem;padding:10px 0 40px}
+[hidden]{display:none!important}
+@media(prefers-reduced-motion:reduce){.prog div{transition:none}}
+@media print{
+:root,:root:not([data-theme=light]),:root[data-theme=dark]{--bg:#fff;--card:#fff;--ink:#000;--mut:#444;--line:#ccc}
+.noprint{display:none!important}.card{border:1px solid #ccc;break-inside:avoid}.nm{break-inside:avoid}.names{grid-template-columns:repeat(3,1fr)}
+}
+</style>
+</head>
+<body>
+<header class="top noprint"><div class="wrap">
+ <div class="bar"><span class="brand"><i></i>Startify</span><button class="btn ghost sm" id="theme" type="button" aria-label="Cambiar entre modo claro y oscuro">Modo oscuro</button></div>
+ <section class="hero" id="home">
+  <h1>Tu negocio, de la idea al plan.</h1>
+  <p>Responde 8 preguntas y recibe 3 nombres de marca con logo, un presupuesto por rubros y un business plan listo para descargar. Sin registro: tus respuestas se quedan en tu dispositivo.</p>
+  <button class="btn" id="start" type="button">Empezar</button>
+ </section>
+</div></header>
+
+<main class="wrap">
+ <section id="wizard" class="card noprint" hidden aria-live="polite">
+  <div class="prog" role="progressbar" aria-label="Avance"><div id="prog"></div></div>
+  <div class="count" id="count"></div>
+  <div id="step"></div>
+  <div id="err" role="alert"></div>
+  <div class="nav"><button class="btn ghost" id="back" type="button">Atrás</button><button class="btn" id="next" type="button">Siguiente</button></div>
+ </section>
+ <section id="results" hidden></section>
+</main>
+<footer class="wrap">Las cifras y textos son estimaciones orientativas para arrancar una idea; no sustituyen asesoría financiera, contable ni legal.</footer>
+
+<script>
+const $=s=>document.querySelector(s);
+const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const fmt=n=>'$'+Math.round(n).toLocaleString('es-MX');
+const norm=s=>s.normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/[^a-zñ]/g,'');
+const cap=s=>s.charAt(0).toUpperCase()+s.slice(1);
+const rnd=a=>a[Math.floor(Math.random()*a.length)];
+
+/* Opcional: URL de tu proxy/serverless que llame a un LLM. Nunca pongas una API key en este archivo. */
+const AI_ENDPOINT='';
+
+const G={
+ alimentos:{t:'Alimentos y bebidas',s:'circle',p:[['#C2410C','#F59E0B'],['#166534','#FACC15'],['#7C2D12','#FDBA74'],['#9F1239','#FDE68A']],o:'alimentos y bebidas de calidad',v:['Frescura','Higiene','Sabor auténtico','Trato cercano'],tr:'crece la demanda de opciones locales, saludables y con entrega a domicilio',m:'la venta directa de platillos y bebidas, combos y pedidos recurrentes'},
+ tecnologia:{t:'Tecnología',s:'hex',p:[['#2547D0','#22D3EE'],['#4338CA','#A78BFA'],['#0F766E','#5EEAD4'],['#1E293B','#38BDF8']],o:'soluciones tecnológicas útiles y fáciles de usar',v:['Innovación','Simplicidad','Confiabilidad','Transparencia'],tr:'la digitalización de los negocios pequeños impulsa el uso de herramientas digitales',m:'suscripciones, licencias o proyectos a la medida con soporte recurrente'},
+ moda:{t:'Moda y accesorios',s:'diamond',p:[['#111827','#F472B6'],['#7E22CE','#FBCFE8'],['#9D174D','#FCD34D'],['#0F172A','#FDA4AF']],o:'prendas y accesorios con identidad propia',v:['Estilo','Calidad','Autenticidad','Responsabilidad'],tr:'los clientes buscan piezas únicas, producción local y compra por redes sociales',m:'la venta de colecciones por temporada, ediciones limitadas y pedidos personalizados'},
+ servicios:{t:'Servicios profesionales',s:'square',p:[['#0F4C81','#F0B429'],['#14532D','#86EFAC'],['#374151','#FBBF24'],['#1D4ED8','#BFDBFE']],o:'servicios profesionales claros y confiables',v:['Profesionalismo','Puntualidad','Confianza','Resultados'],tr:'las personas prefieren contratar servicios con reseñas, precios claros y atención rápida',m:'honorarios por servicio, paquetes y contratos de atención recurrente'},
+ comercio:{t:'Comercio y retail',s:'square',p:[['#B45309','#1D4ED8'],['#0F766E','#FCD34D'],['#7F1D1D','#FDE68A'],['#1E3A8A','#FDBA74']],o:'productos útiles a buen precio y con buen servicio',v:['Buen precio','Variedad','Servicio','Confianza'],tr:'el cliente compara precios en línea pero valora la atención y la disponibilidad inmediata',m:'la venta de productos con margen por unidad, promociones y clientes frecuentes'},
+ salud:{t:'Salud y bienestar',s:'leaf',p:[['#0F766E','#99F6E4'],['#15803D','#BEF264'],['#0369A1','#7DD3FC'],['#BE185D','#FBCFE8']],o:'bienestar y cuidado personal con enfoque humano',v:['Empatía','Cuidado','Ética','Bienestar integral'],tr:'aumenta el interés por la prevención, el autocuidado y los hábitos saludables',m:'consultas o sesiones, paquetes de seguimiento y membresías'},
+ educacion:{t:'Educación y capacitación',s:'hex',p:[['#1D4ED8','#FCD34D'],['#6D28D9','#FDE68A'],['#0E7490','#FDBA74'],['#166534','#BAE6FD']],o:'formación práctica que se nota en resultados',v:['Aprendizaje','Rigor','Accesibilidad','Acompañamiento'],tr:'crece la demanda de capacitación flexible, en línea y orientada a habilidades',m:'cursos, talleres, asesorías y programas por suscripción'},
+ otro:{t:'Otro giro',s:'circle',p:[['#2547D0','#F0B429'],['#0F766E','#FDE68A'],['#9D174D','#FDBA74'],['#111827','#A7F3D0']],o:'una propuesta clara, útil y bien comunicada',v:['Calidad','Honestidad','Cercanía','Constancia'],tr:'los clientes valoran propuestas claras, cercanas y bien comunicadas',m:'la venta de tus productos o servicios, con paquetes y clientes recurrentes'}
+};
+const MODAL={alimentos:['Local con servicio en mesa','Solo para llevar y entrega a domicilio','Ambos'],tecnologia:['Producto o app digital','Producto físico','Servicio o consultoría'],comercio:['Tienda física','Tienda en línea','Ambas']};
+const WORK=['1–5 personas','6–20 personas','21–50 personas','Más de 50 personas'],WN=[3,13,35,60];
+const HOR=['Horario de oficina (lunes a viernes)','Horario extendido (mañana y tarde)','Incluye fines de semana','Turnos rotativos o 24 horas','Solo por cita o pedido'];
+const RUB=['Gastos operativos fijos','Gastos operativos variables','Otros gastos','Materias primas','Gastos administrativos y ventas'];
+const RANGES=[[50000,[35,10,10,25,20],'Menor a $50,000'],[200000,[30,15,10,25,20],'$50,001 a $200,000'],[1000000,[25,20,10,25,20],'$200,001 a $1,000,000'],[Infinity,[20,25,10,25,20],'Mayor a $1,000,000']];
+const COLORS=['#2547D0','#7C9BFF','#F0B429','#22D3EE','#A78BFA'];
+
+let A={kw:[],giro:'',modal:'',pal:G.otro.p[0],work:'',hor:'',ciudad:'',zona:'Urbana',pais:'México',pres:'',comp:'',dif:''};
+let R={names:[],sel:0,ai:null},cur='kw';
+try{const s=JSON.parse(localStorage.getItem('startify.a')||'null');if(s&&Array.isArray(s.kw))A=Object.assign(A,s)}catch(e){}
+const save=()=>{try{localStorage.setItem('startify.a',JSON.stringify(A))}catch(e){}};
+const pnum=()=>Number(String(A.pres).replace(/[^\d]/g,''))||0;
+
+/* ---------- Cuestionario ---------- */
+const opts=(k,list,v)=>`<div class="opts">${list.map(o=>`<label class="opt"><input type="radio" name="${k}" data-k="${k}" value="${esc(o)}" ${o===v?'checked':''}><span>${esc(o)}</span></label>`).join('')}</div>`;
+const STEPS=[
+{id:'kw',q:'¿Qué palabras describen tu negocio?',h:'Escribe de 3 a 7 y presiona Enter o «Agregar». Por ejemplo: café, montaña, artesanal.',
+ r:a=>`<div class="tags">${a.kw.map((k,i)=>`<span class="tag">${esc(k)}<button type="button" data-rm="${i}" aria-label="Quitar ${esc(k)}">×</button></span>`).join('')}</div><div class="row"><input id="kwin" type="text" placeholder="Escribe una palabra" autocomplete="off" enterkeyhint="done" maxlength="24"><button type="button" class="btn ghost" id="kwadd">Agregar</button></div>`,
+ v:a=>a.kw.length<3?'Agrega al menos 3 palabras.':a.kw.length>7?'Máximo 7 palabras.':''},
+{id:'giro',q:'¿A qué se dedica tu negocio?',h:'Define el estilo de tu logo y los textos del plan.',
+ r:a=>`<select data-k="giro" aria-label="Giro del negocio"><option value="">Elige un giro</option>${Object.entries(G).map(([k,g])=>`<option value="${k}" ${a.giro===k?'selected':''}>${g.t}</option>`).join('')}</select>`,
+ v:a=>a.giro?'':'Elige un giro.'},
+{id:'modal',q:'¿Cómo vas a operar?',h:'Cambia cómo describimos tu modelo de negocio.',show:a=>!!MODAL[a.giro],
+ r:a=>opts('modal',MODAL[a.giro]||[],a.modal),v:a=>a.modal?'':'Elige una opción.'},
+{id:'pal',q:'¿Qué colores prefieres?',h:'Elige una paleta sugerida para tu giro o escoge tus propios colores.',
+ r:a=>{const p=(G[a.giro]||G.otro).p;return `<div class="pals">${p.map((c,i)=>`<button type="button" class="sw ${c[0]===a.pal[0]&&c[1]===a.pal[1]?'on':''}" data-pal="${i}" aria-label="Paleta ${i+1}"><b style="background:${c[0]}"></b><b style="background:${c[1]}"></b></button>`).join('')}</div><div class="cols"><label>Principal <input type="color" data-c="0" value="${a.pal[0]}"></label><label>Acento <input type="color" data-c="1" value="${a.pal[1]}"></label></div>`},v:()=>''},
+{id:'work',q:'¿Cuántas personas trabajarán contigo?',h:'Incluye a todo el equipo que necesitas al arrancar.',r:a=>opts('work',WORK,a.work),v:a=>a.work?'':'Elige un rango.'},
+{id:'hor',q:'¿Cuál será tu horario?',h:'',r:a=>opts('hor',HOR,a.hor),v:a=>a.hor?'':'Elige un horario.'},
+{id:'loc',q:'¿Dónde estará tu negocio?',h:'',
+ r:a=>`<input type="text" data-k="ciudad" value="${esc(a.ciudad)}" placeholder="Ciudad o municipio" autocomplete="address-level2" maxlength="60" aria-label="Ciudad"><div style="height:10px"></div><input type="text" data-k="pais" value="${esc(a.pais)}" placeholder="País" autocomplete="country-name" maxlength="40" aria-label="País">${opts('zona',['Urbana','Rural'],a.zona)}`,
+ v:a=>a.ciudad.trim().length<2?'Escribe tu ciudad o municipio.':!a.pais.trim()?'Escribe el país.':''},
+{id:'pres',q:'¿Con cuánto dinero cuentas para arrancar?',h:'En pesos mexicanos (MXN). Puede ser una cantidad aproximada.',
+ r:a=>`<input type="text" data-k="pres" inputmode="numeric" value="${esc(a.pres)}" placeholder="Ej. 150000" aria-label="Presupuesto en MXN">`,
+ v:a=>pnum()<1000?'Escribe una cantidad de al menos $1,000.':''},
+{id:'comp',q:'¿Tu negocio es muy competido?',h:'Si no estás seguro, elige «No sé»: lo tomamos en cuenta en tus recomendaciones.',r:a=>opts('comp',['Sí','No','No sé'],a.comp),v:a=>a.comp?'':'Elige una opción.'},
+{id:'dif',q:'¿Qué te hace diferente?',h:'Una frase corta: precio, calidad, rapidez, trato, ingredientes…',show:a=>a.comp==='Sí',
+ r:a=>`<input type="text" data-k="dif" value="${esc(a.dif)}" placeholder="Ej. entrega en 30 minutos" maxlength="120" aria-label="Diferenciador">`,v:a=>a.dif.trim().length<4?'Escribe al menos unas palabras.':''}
+];
+const visible=()=>STEPS.filter(s=>!s.show||s.show(A));
+function show(id){['home','wizard','results'].forEach(x=>{$('#'+x).hidden=x!==id});$('.hero').hidden=id!=='home'}
+function renderStep(){
+ const vis=visible(),i=Math.max(0,vis.findIndex(s=>s.id===cur)),s=vis[i];cur=s.id;
+ $('#prog').style.width=((i+1)/vis.length*100)+'%';
+ $('#count').textContent=`Pregunta ${i+1} de ${vis.length}`;
+ $('#step').innerHTML=`<h2 id="q" tabindex="-1">${s.q}</h2><p class="hint">${s.h}</p>${s.r(A)}`;
+ $('#back').hidden=i===0;$('#next').textContent=i===vis.length-1?'Generar mi negocio':'Siguiente';$('#err').textContent='';
+ (s.id==='kw'?$('#kwin'):$('#q')).focus({preventScroll:s.id!=='kw'});
+}
+function pushKw(str){str.split(',').map(x=>x.trim()).filter(Boolean).forEach(p=>{if(A.kw.length<7&&!A.kw.some(k=>k.toLowerCase()===p.toLowerCase()))A.kw.push(p.slice(0,24))});save()}
+function next(){
+ if(cur==='kw'&&$('#kwin'))pushKw($('#kwin').value);
+ const vis=visible(),i=vis.findIndex(s=>s.id===cur),e=vis[i].v(A);
+ if(e){$('#err').textContent=e;if(cur==='kw')renderStep(),$('#err').textContent=e;return}
+ save();if(i<vis.length-1){cur=vis[i+1].id;renderStep()}else generate();
+}
+$('#next').onclick=next;
+$('#back').onclick=()=>{const vis=visible(),i=vis.findIndex(s=>s.id===cur);if(i>0){cur=vis[i-1].id;renderStep()}};
+$('#start').onclick=()=>{cur='kw';show('wizard');renderStep();$('#wizard').scrollIntoView({behavior:'smooth',block:'start'})};
+const stepEl=$('#step');
+stepEl.addEventListener('input',e=>{const t=e.target;
+ if(t.dataset.c!==undefined){A.pal=A.pal.slice();A.pal[+t.dataset.c]=t.value}
+ else if(t.dataset.k){A[t.dataset.k]=t.value;if(t.dataset.k==='giro'){A.pal=(G[A.giro]||G.otro).p[0];A.modal=''}}
+ save()});
+stepEl.addEventListener('click',e=>{const t=e.target.closest('button');if(!t)return;
+ if(t.dataset.rm!==undefined){A.kw.splice(+t.dataset.rm,1);save();renderStep()}
+ else if(t.id==='kwadd'){pushKw($('#kwin').value);renderStep()}
+ else if(t.dataset.pal!==undefined){A.pal=(G[A.giro]||G.otro).p[+t.dataset.pal];save();renderStep()}});
+stepEl.addEventListener('keydown',e=>{const t=e.target;
+ if(t.id==='kwin'&&(e.key==='Enter'||e.key===',')){e.preventDefault();pushKw(t.value);renderStep()}
+ else if(e.key==='Enter'&&t.tagName==='INPUT'&&t.type==='text'){e.preventDefault();next()}});
+
+/* ---------- Generación ---------- */
+const V=/[aeiou]/;
+function cut(w,n){let i=Math.min(n,w.length);while(i<w.length&&!V.test(w[i-1]))i++;return w.slice(0,i)}
+const okName=n=>n.length>=4&&n.length<=14&&!/[^aeiouñ]{4}/.test(n.toLowerCase())&&!/(.)\1\1/.test(n.toLowerCase());
+function genNames(a){
+ let w=a.kw.map(norm).filter(x=>x.length>2);if(!w.length)w=['marca'];
+ const S=['ly','ia','io','ora','ix','ero','um','ar','ano','eo'],P=['nova','alta','viva','neo','uni','pura'],X=['Lab','Hub','Studio','Casa','Taller'];
+ const mk=[()=>{const x=rnd(w),y=rnd(w);return cap(cut(x,3)+y.slice(Math.floor(y.length/2)))},()=>cap(rnd(w).replace(/[aeiou]$/,'')+rnd(S)),()=>cap(rnd(P)+rnd(w).slice(0,5)),()=>cap(rnd(w))+rnd(X)];
+ const out=[],seen=new Set();
+ for(let i=0;i<80&&out.length<3;i++){const n=rnd(mk)();if(okName(n)&&!seen.has(n.toLowerCase())){seen.add(n.toLowerCase());out.push(n)}}
+ while(out.length<3)out.push(cap(rnd(w))+(out.length+1));
+ return out;
+}
+const lum=h=>{const c=[1,3,5].map(i=>parseInt(h.substr(i,2),16)/255).map(v=>v<=.03928?v/12.92:Math.pow((v+.055)/1.055,2.4));return .2126*c[0]+.7152*c[1]+.0722*c[2]};
+const onC=h=>lum(h)>.45?'#10151F':'#FFFFFF';
+function shp(s,at){
+ if(s==='circle')return `<circle cx="160" cy="125" r="82" ${at}/>`;
+ if(s==='square')return `<rect x="78" y="43" width="164" height="164" rx="38" ${at}/>`;
+ if(s==='diamond')return `<polygon points="160,35 250,125 160,215 70,125" stroke-linejoin="round" ${at}/>`;
+ if(s==='leaf')return `<path d="M78 208C78 108 128 42 244 42C244 150 192 208 78 208Z" stroke-linejoin="round" ${at}/>`;
+ const p=[0,1,2,3,4,5].map(k=>{const t=Math.PI/180*(60*k-90);return (160+88*Math.cos(t)).toFixed(1)+','+(125+88*Math.sin(t)).toFixed(1)}).join(' ');
+ return `<polygon points="${p}" stroke-linejoin="round" ${at}/>`;
+}
+function logoSVG(name,sh,pal,v,bg){
+ const [c1,c2]=pal,fill=v===1?`fill="none" stroke="${c1}" stroke-width="10"`:`fill="${v===2?c2:c1}"`,lc=v===1?c1:onC(v===2?c2:c1),fs=Math.min(46,Math.floor(495/name.length));
+ return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 320" width="320" height="320" role="img" aria-label="Logo de ${esc(name)}">${bg?`<rect width="320" height="320" fill="${bg}"/>`:''}${shp(sh,fill)}<text x="160" y="150" text-anchor="middle" font-family="Georgia,serif" font-size="88" font-weight="700" fill="${lc}">${esc(name[0].toUpperCase())}</text><circle cx="238" cy="190" r="16" fill="${v===2?c1:c2}"/><text x="160" y="278" text-anchor="middle" font-family="Trebuchet MS,Verdana,sans-serif" font-size="${fs}" font-weight="700" fill="${c1}" letter-spacing="1">${esc(name)}</text></svg>`;
+}
+function budget(p){const r=RANGES.find(x=>p<=x[0]);return{label:r[2],rows:RUB.map((n,i)=>({n,pc:r[1][i],m:p*r[1][i]/100}))}}
+function plan(a,name){
+ const g=G[a.giro]||G.otro,rural=a.zona==='Rural',wi=Math.max(0,WORK.indexOf(a.work)),city=`${a.ciudad.trim()}, ${a.pais.trim()}`,P=pnum(),b=budget(P);
+ const comp=a.comp==='Sí'?'Es un mercado muy competido':a.comp==='No'?'La competencia es baja o moderada':'El nivel de competencia aún está por validar';
+ const op=[];
+ op.push(a.comp==='Sí'?`Diferénciate con lo que dijiste que te distingue: ${a.dif.trim()}. Comunícalo en el nombre, el empaque, las redes y el trato al cliente.`:a.comp==='No'?'Hay espacio para ser la referencia: invierte pronto en marca y comunidad antes de que lleguen más competidores.':'Antes de gastar, revisa 5 competidores directos (precios, reseñas, horarios) para validar que hay mercado.');
+ op.push(P<=50000?'Con presupuesto ajustado, lanza una versión mínima (un producto o servicio estrella) y reinvierte las primeras ventas.':P>1000000?'Define metas trimestrales y conserva una reserva de al menos 3 meses de gastos fijos.':'Reserva cerca de 10% para imprevistos y mide tus ventas cada semana desde el primer mes.');
+ op.push(rural?'En zona rural, aprovecha el boca a boca y las alianzas con negocios locales; evalúa vender por mensajería o en línea para ampliar alcance.':'En zona urbana, cuida tu ficha de Google Maps y tus redes: de ahí llega la mayoría de los clientes nuevos.');
+ if(/fines|Turnos/.test(a.hor))op.push('Tu horario cubre fines de semana o turnos: planea relevos para que el equipo descanse y el servicio no se resienta.');
+ else if(/cita/.test(a.hor))op.push('Facilita agendar por WhatsApp o con un calendario en línea para no perder clientes.');
+ if(wi>=1)op.push(`Con un equipo de ${a.work.replace(' personas','')} personas, documenta procesos y responsabilidades desde el inicio.`);
+ const nm=WN[wi]*9000,meses=b.rows[0].m/nm;
+ return{
+  mision:`${name} existe para ofrecer ${g.o} a ${rural?'las comunidades de la región':'las personas y familias'} de ${a.ciudad.trim()}, inspirándose en ${a.kw.slice(0,3).join(', ')}.`,
+  vision:`Ser en cinco años una marca de referencia en ${g.t.toLowerCase()} en ${a.ciudad.trim()}, y crecer hacia ${wi>=1?'nuevas sucursales o líneas de negocio':'nuevos productos o servicios con el mismo estándar'}.`,
+  valores:[...g.v,'Mejora continua'],
+  mercado:`En ${city} (zona ${a.zona.toLowerCase()}), ${g.tr}. ${comp}. Tu cliente ideal es ${rural?'quien valora la cercanía y la confianza de su comunidad':'quien busca comodidad y rapidez en la ciudad'}.`,
+  modelo:`${name} generará ingresos mediante ${g.m}.${a.modal?` Modalidad: ${a.modal.toLowerCase()}.`:''} Equipo inicial: ${a.work.toLowerCase()}. Horario: ${a.hor.toLowerCase()}.`,
+  oport:op.slice(0,6),
+  nota:`Como referencia, el rubro de gastos operativos fijos (${fmt(b.rows[0].m)}) cubriría unos ${meses.toFixed(1)} meses de nómina para ${WN[wi]} personas a $9,000 mensuales.${meses<3?' Es poco margen: considera arrancar con menos personas o ampliar el presupuesto.':''}`
+ };
+}
+async function enrich(){
+ if(!AI_ENDPOINT)return;
+ try{const r=await fetch(AI_ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({answers:A,names:R.names})});const d=await r.json();
+  if(Array.isArray(d.names)&&d.names.length>=3)R.names=d.names.slice(0,3).map(String);if(d.plan&&typeof d.plan==='object')R.ai=d.plan;renderResults()}catch(e){}
+}
+function generate(){R.names=genNames(A);R.sel=0;R.ai=null;show('results');renderResults();$('#results').scrollIntoView();enrich()}
+
+/* ---------- Resultados ---------- */
+const curPlan=()=>Object.assign(plan(A,R.names[R.sel]),R.ai||{});
+function renderResults(){
+ const g=G[A.giro]||G.otro,P=pnum(),b=budget(P),pl=curPlan();
+ const col=['var(--acc)','var(--gold)','#22A699','#9B5DE5','#E4572E'];
+ $('#results').innerHTML=`
+ <div class="card"><h2>Tu negocio, paso a paso</h2><p class="hint">Elige el nombre que más te guste: el business plan se actualiza con él.</p>
+ <div class="actions noprint"><button class="btn sm" data-act="pdf">Descargar PDF</button><button class="btn ghost sm" data-act="csv">Presupuesto CSV</button><button class="btn ghost sm" data-act="txt">Plan en TXT</button><button class="btn ghost sm" data-act="regen">Nuevos nombres</button><button class="btn ghost sm" data-act="edit">Editar respuestas</button><button class="btn ghost sm" data-act="reset">Empezar de nuevo</button></div></div>
+ <div class="card"><h2>Nombres y logos</h2><div class="names">${R.names.map((n,i)=>`<div class="nm ${i===R.sel?'sel':''}"><div class="logo">${logoSVG(n,g.s,A.pal,i)}</div><strong>${esc(n)}</strong><div class="dls noprint"><button class="btn sm ${i===R.sel?'':'ghost'}" data-sel="${i}" ${i===R.sel?'aria-pressed="true"':''}>${i===R.sel?'Elegido':'Usar este'}</button><button class="btn ghost sm" data-dl="svg" data-i="${i}">SVG</button><button class="btn ghost sm" data-dl="png" data-i="${i}">PNG</button><button class="btn ghost sm" data-dl="jpg" data-i="${i}">JPG</button></div></div>`).join('')}</div></div>
+ <div class="card"><h2>Presupuesto estimado</h2><p>Rango: ${b.label}. Presupuesto total: <strong>${fmt(P)} MXN</strong>.</p>
+ <div class="stack" aria-hidden="true">${b.rows.map((r,i)=>`<i style="width:${r.pc}%;background:${col[i]}"></i>`).join('')}</div>
+ <table><thead><tr><th>Rubro</th><th>%</th><th>Monto</th></tr></thead><tbody>${b.rows.map((r,i)=>`<tr><td><span style="color:${col[i]}">●</span> ${r.n}</td><td>${r.pc}%</td><td>${fmt(r.m)}</td></tr>`).join('')}<tr><th>Total</th><th>100%</th><th>${fmt(P)}</th></tr></tbody></table>
+ <p class="note" style="margin-top:14px">${esc(pl.nota)}</p></div>
+ <div class="card plan"><h2>Business plan: ${esc(R.names[R.sel])}</h2>
+ <h3>Misión</h3><p>${esc(pl.mision)}</p><h3>Visión</h3><p>${esc(pl.vision)}</p>
+ <h3>Valores</h3><ul>${pl.valores.map(v=>`<li>${esc(v)}</li>`).join('')}</ul>
+ <h3>Estudio de mercado simple</h3><p>${esc(pl.mercado)}</p><h3>Modelo de negocio</h3><p>${esc(pl.modelo)}</p>
+ <h3>Áreas de oportunidad y recomendaciones</h3><ul>${pl.oport.map(v=>`<li>${esc(v)}</li>`).join('')}</ul></div>`;
+}
+function dl(blob,name){const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=name;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(a.href),3000)}
+function raster(svg,type,name){const img=new Image();
+ img.onload=()=>{const c=document.createElement('canvas');c.width=c.height=1024;c.getContext('2d').drawImage(img,0,0,1024,1024);c.toBlob(b=>b?dl(b,name):alert('No se pudo crear la imagen. Descarga el SVG.'),type,.95)};
+ img.onerror=()=>alert('Tu navegador no pudo crear la imagen. Descarga el SVG.');
+ img.src='data:image/svg+xml;charset=utf-8,'+encodeURIComponent(svg)}
+const slug=s=>norm(s)||'startify';
+function csv(){const P=pnum(),rows=[['Rubro','Porcentaje','Monto (MXN)'],...budget(P).rows.map(r=>[r.n,r.pc+'%',Math.round(r.m)]),['Total','100%',P]];return '\ufeff'+rows.map(r=>r.map(c=>`"${c}"`).join(',')).join('\r\n')}
+function txt(){const p=curPlan(),n=R.names[R.sel],L='\n';return `BUSINESS PLAN: ${n}${L}${'='.repeat(20)}${L}${L}MISIÓN${L}${p.mision}${L}${L}VISIÓN${L}${p.vision}${L}${L}VALORES${L}${p.valores.map(v=>'- '+v).join(L)}${L}${L}ESTUDIO DE MERCADO${L}${p.mercado}${L}${L}MODELO DE NEGOCIO${L}${p.modelo}${L}${L}ÁREAS DE OPORTUNIDAD Y RECOMENDACIONES${L}${p.oport.map(v=>'- '+v).join(L)}${L}${L}PRESUPUESTO (${fmt(pnum())} MXN)${L}${budget(pnum()).rows.map(r=>`- ${r.n}: ${r.pc}% (${fmt(r.m)})`).join(L)}${L}`}
+$('#results').addEventListener('click',e=>{const t=e.target.closest('button');if(!t)return;const g=G[A.giro]||G.otro;
+ if(t.dataset.sel!==undefined){R.sel=+t.dataset.sel;renderResults()}
+ else if(t.dataset.dl){const i=+t.dataset.i,n=R.names[i],f=slug(n)+'-logo';
+  if(t.dataset.dl==='svg')dl(new Blob([logoSVG(n,g.s,A.pal,i)],{type:'image/svg+xml'}),f+'.svg');
+  else if(t.dataset.dl==='png')raster(logoSVG(n,g.s,A.pal,i),'image/png',f+'.png');
+  else raster(logoSVG(n,g.s,A.pal,i,'#FFFFFF'),'image/jpeg',f+'.jpg')}
+ else{const a=t.dataset.act;
+  if(a==='pdf'){const o=document.title;document.title='Business plan '+R.names[R.sel];window.print();document.title=o}
+  else if(a==='csv')dl(new Blob([csv()],{type:'text/csv;charset=utf-8'}),'presupuesto-'+slug(R.names[R.sel])+'.csv');
+  else if(a==='txt')dl(new Blob([txt()],{type:'text/plain;charset=utf-8'}),'business-plan-'+slug(R.names[R.sel])+'.txt');
+  else if(a==='regen'){R.names=genNames(A);R.sel=0;R.ai=null;renderResults()}
+  else if(a==='edit'){cur='kw';show('wizard');renderStep();window.scrollTo(0,0)}
+  else if(a==='reset'&&confirm('Se borrarán tus respuestas de este dispositivo. ¿Continuar?')){try{localStorage.removeItem('startify.a')}catch(x){}location.reload()}}});
+
+/* ---------- Tema ---------- */
+const root=document.documentElement,tb=$('#theme');
+const dark=()=>root.dataset.theme?root.dataset.theme==='dark':matchMedia('(prefers-color-scheme: dark)').matches;
+const lab=()=>{tb.textContent=dark()?'Modo claro':'Modo oscuro'};
+tb.onclick=()=>{root.dataset.theme=dark()?'light':'dark';lab()};lab();
+</script>
+</body>
+</html>
