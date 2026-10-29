@@ -4,7 +4,7 @@ Generador de ideas de negocio. El usuario responde un cuestionario de 8 pregunta
 
 Es una página estática de un solo archivo (`index.html`): sin dependencias, sin backend y sin registro. Funciona en cualquier navegador moderno, en celular, tablet o escritorio, y también sin conexión.
 
-**Demo:** `https://TU-USUARIO.github.io/TU-REPO/`
+**Demo:** https://rodrigobusquets.github.io/Startify/
 
 ## Qué hace
 
